@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House Price Prediction</title>
+    <!-- Add your CSS styles or include external stylesheets here -->
+    <style>
+      /* Add your styles here */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow-y: auto; /* Enable vertical scrolling */
+        height: calc(
+          100vh - 200px
+        ); /* Adjust the height based on your footer's height and desired spacing */
+      }
+
+      footer {
+        text-align: center;
+        padding: 2px;
+        background-color: #333;
+        color: #fff;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      /* Add styling for the form */
+      form {
+        margin-top: 20px;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+      }
+
+      button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      /* Style for displaying the predicted price */
+      #predictedPrice {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Boston House Price Prediction</h1>
+    </header>
+    <main>
+      <p>Welcome to House Price Prediction Model!</p>
+
+      <!-- Form for input fields -->
+
+      <form action="{{url_for('predict')}}" method="post">
+        <input
+          type="text"
+          name="CRIM"
+          placeholder="CRIM"
+          required="required"
+        /><br />
+
+        <input
+          type="text"
+          name="ZN"
+          placeholder="ZN"
+          required="required"
+        /><br />
+
+        <input
+          type="text"
+          name="INDUS"
+          placeholder="INDUS"
+          required="required"
+        /><br />
+
+        <input
+          type="text"
+          name="CHAS"
+          placeholder="CHAS"
+          required="required"
+        /><br />
+
+        <input
+          type="text"
+          name="NOX"
+          placeholder="NOX"
+          required="required"
+        /><br />
+
+        <input
+          type="text"
+          name="RM"
+          placeholder="RM"
+          required="required"
+        /><br />
+
+        <input
+          type="text"
+          name="Age"
+          placeholder="Age"
+          required="required"
+        /><br />
+
+        <input
+          type="text"
+          name="DIS"
+          placeholder="DIS"
+          required="required"
+        /><br />
+
+        <input
+          type="text"
+          name="RAD"
+          placeholder="RAD"
+          required="required"
+        /><br />
+
+        <input
+          type="text"
+          name="TAX"
+          placeholder="TAX"
+          required="required"
+        /><br />
+
+        <input
+          type="text"
+          name="PTRATIO"
+          placeholder="PTRATIO"
+          required="required"
+        /><br />
+
+        <input type="text" name="B" placeholder="B" required="required" /><br />
+
+        <input
+          type="text"
+          name="LSTAT"
+          placeholder="LSTAT"
+          required="required"
+        /><br />
+
+        <!-- Predict Price button -->
+        <button type="submit">Predict Price</button>
+      </form>
+      {% if prediction_text %}
+      <h2 id="predictedPrice">{{ prediction_text }}</h2>
+      {% endif %}
+    </main>
+    <footer>
+      <p>&copy; 2024 House Price Prediction. All rights reserved.</p>
+    </footer>
+    <!-- Add your JavaScript scripts or include external scripts here -->
+  </body>
+</html>
